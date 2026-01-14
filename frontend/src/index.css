@@ -1,0 +1,23 @@
+:root {
+  --bg:#0a0c10; --card:#13151f; --text:#f0f3ff; --sub:#9ca7c8;
+  --btn:#181b28; --btnHover:#1e2230; --accent:#7c5cff; --accentHover:#9475ff;
+  --border:#1e2538; --glow:rgba(124,92,255,0.15);
+  --priority: #00f5ff;
+  /* Additional vars from other pages */
+  --heading: #1a1a1a;
+  --panel-bg: #ffffff;
+  --brand: #6a5acd;
+  --brand-light: #f0edff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--text);background:var(--bg);
+  background-image:radial-gradient(circle at 20% 10%,rgba(124,92,255,0.03),transparent 40%),
+                   radial-gradient(circle at 80% 90%,rgba(59,130,246,0.03),transparent 40%);
+  line-height:1.6;
+}
+
+a { color: inherit; text-decoration: none; }

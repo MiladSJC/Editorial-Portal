@@ -1,0 +1,256 @@
+.horoscope-page {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--panel-bg);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+}
+
+.page-header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--heading);
+    -webkit-text-fill-color: var(--heading);
+    /* Override home gradient */
+    background: none;
+}
+
+.page-header h1 span {
+    color: var(--sub);
+    font-weight: 400;
+}
+
+.horoscope-page main {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 24px 80px;
+}
+
+.controls-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 11px;
+    color: var(--sub);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    font-weight: 600;
+}
+
+select,
+input {
+    background: #f7f7f9;
+    border: 1px solid var(--border);
+    color: #2d2d2d;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px var(--brand-light);
+}
+
+.btn {
+    border: 1px solid var(--border);
+    background: #f7f7f9;
+    color: #2d2d2d;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.btn:hover:not(:disabled) {
+    background: #f0f0f2;
+    border-color: #d0d0d0;
+}
+
+.btn.primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: white;
+}
+
+.btn.primary:hover:not(:disabled) {
+    background: #594ab7;
+    border-color: #594ab7;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border-color: var(--border);
+    font-weight: 500;
+}
+
+.btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* --- Magazine Layout --- */
+.magazine-title {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--heading);
+}
+
+.magazine-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin: 0 0 8px;
+    color: var(--heading);
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.magazine-title .subtitle {
+    font-size: 16px;
+    color: var(--sub);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.magazine-layout {
+    column-count: 3;
+    column-gap: 40px;
+}
+
+.horoscope-entry {
+    break-inside: avoid;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.zodiac-icon {
+    font-size: 36px;
+    color: var(--brand);
+}
+
+.entry-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--heading);
+    margin: 0;
+    font-weight: 700;
+}
+
+.entry-header .dates {
+    font-size: 12px;
+    color: var(--sub);
+    font-style: italic;
+}
+
+.entry-body {
+    font-size: 14px;
+    text-align: justify;
+    color: #2d2d2d;
+}
+
+.loading-state {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--sub);
+    padding: 20px 0;
+}
+
+.spinner {
+    border: 3px solid var(--brand-light);
+    border-top: 3px solid var(--brand);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.placeholder {
+    text-align: center;
+    color: var(--sub);
+    padding: 80px 20px;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+}
+
+.placeholder-icon {
+    font-size: 50px;
+    margin-bottom: 16px;
+    opacity: 0.8;
+    font-family: 'Playfair Display', serif;
+}
+
+@media (max-width: 900px) {
+    .magazine-layout {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .magazine-title h2 {
+        font-size: 36px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+}
