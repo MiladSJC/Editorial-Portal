@@ -18,28 +18,27 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-          lfs: false
 
-      # 1. Force the runner to use Node 20 to satisfy Vite 7 requirements
-      - name: Set up Node.js
+      # Step 1: Force Node.js 20 (required by Vite 7)
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # 2. Build and Deploy to Azure
+      # Step 2: Build and Deploy to Azure
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          # TOKEN ADDED DIRECTLY BELOW
+          azure_static_web_apps_api_token: "c908b7c10e53c1bfefdeb720bf44d0554adf89cd1c2351fbed982b485b5e0dca04-1bf584a8-0bdc-4679-a28a-5f0ac545deb400f2431036fa1a0f"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           
-          ###### PATH UPDATES ######
-          app_location: "/frontend"      # Path to your React app code
-          api_location: ""               # Leave empty (you are using a separate Python backend)
-          output_location: "dist"        # Vite creates a 'dist' folder, not 'build'
-          ###### END PATH UPDATES ######
+          # Path configuration
+          app_location: "/frontend"       
+          api_location: ""                
+          output_location: "dist"         # Vite builds into 'dist'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event_action == 'closed'
@@ -50,5 +49,6 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          # TOKEN ADDED DIRECTLY BELOW
+          azure_static_web_apps_api_token: "c908b7c10e53c1bfefdeb720bf44d0554adf89cd1c2351fbed982b485b5e0dca04-1bf584a8-0bdc-4679-a28a-5f0ac545deb400f2431036fa1a0f"
           action: "close"
